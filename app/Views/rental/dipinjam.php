@@ -42,9 +42,6 @@
               <td>
                 <a href="<?= base_url('/rental/update-status/' . $rental['id'] . '/dibatalkan') ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin membatalkan peminjaman ini?');">Batalkan</a>
               </td>        
-              <td>
-                <a href="" class="btn btn-primary">Detail</a>
-              </td>
             </tr>
             <?php endforeach; ?>
           <?php else: ?>

@@ -27,7 +27,6 @@
               <td><?= esc($items['id']) ?></td> <!-- Assuming there's an ID field -->
               <td><?= esc($items['model']) ?></td>
               <td><?= esc($items['description']) ?></td>
-              
               <td>
                   <?php if ($items['image']): ?>
                       <img src="<?= base_url('uploads/' . esc($items['image'])) ?>" alt="<?= esc($items['model']) ?>" width="100">

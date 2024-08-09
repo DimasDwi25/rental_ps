@@ -24,9 +24,9 @@ class Console extends Model
     //menghitung jumlah console
     public function countByType()
     {
-        return $this->select('console_type_id, COUNT(*) as count')
+        return $this->select('console_types.model as console_type_name, COUNT(*) as total')
                     ->join('console_types', 'consoles.console_type_id = console_types.id')
-                    ->groupBy('console_type_id')
+                    ->groupBy('console_types.model')
                     ->findAll();
     }
 }

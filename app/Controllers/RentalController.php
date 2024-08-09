@@ -185,6 +185,7 @@ class RentalController extends BaseController
     public function updateStatus($id, $newStatus)
     {
         $rentalModel = new Rental();
+        $consoleModel = new Console();
         
         // Validasi status baru
         $validStatuses = ['dipinjam', 'selesai', 'dibatalkan'];
@@ -194,6 +195,15 @@ class RentalController extends BaseController
 
         // Update status rental
         $rentalModel->update($id, ['status' => $newStatus]);
+
+        // Jika status baru adalah 'selesai', perbarui status konsol menjadi 'available'
+        if ($newStatus === 'selesai' || $newStatus === 'dibatalkan') {
+            // Ambil data rental
+            $rental = $rentalModel->find($id);
+
+            // Perbarui status konsol menjadi 'available'
+            $consoleModel->update($rental['console_id'], ['status' => 'ready']);
+        }
 
         return redirect()->to('/transaksi/dipinjam')->with('success', 'Status rental berhasil diperbarui');
     }

@@ -36,9 +36,6 @@
               <td><?= esc($rental['rental_date']) ?></td>
               <td><?= esc($rental['return_date']) ?></td>
               <td>Rp. <?= number_format(esc($rental['total_price']), 0, ',', '.') ?></td>
-              <td>
-                <a href="" class="btn btn-primary">Detail</a>
-              </td>
             </tr>
             <?php endforeach; ?>
           <?php else: ?>
